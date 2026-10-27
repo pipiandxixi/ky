@@ -44,6 +44,13 @@ Custom Ky options
 
 export type KyOptions = {
 	/**
+	Add random jitter to retry delays.
+
+	@default false
+	*/
+	retryJitter?: boolean;
+
+	/**
 	Shortcut for sending JSON. Use this instead of the `body` option.
 
 	Accepts any plain object or value, which will be stringified using `JSON.stringify()` and sent in the body with the correct header set.

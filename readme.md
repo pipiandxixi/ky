@@ -257,6 +257,13 @@ Notes:
  - The `prefix` and `input` are joined with a slash `/`, and slashes are normalized at the join boundary by trimming trailing slashes from `prefix` and leading slashes from `input`.
  - After `prefix` and `input` are joined, the result is resolved against the `baseUrl` option, if present.
 
+##### retryJitter
+
+Type: `boolean`\
+Default: `false`
+
+Add random jitter to retry delays.
+
 ##### retry
 
 Type: `object | number`\
