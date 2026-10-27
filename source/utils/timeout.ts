@@ -24,7 +24,7 @@ export default async function timeout(
 
 				abortController?.abort();
 
-				reject(new TimeoutError(request));
+				reject(new TimeoutError(request, options.timeout));
 			}, options.timeout);
 
 			// Called unbound so a native `window.fetch` is not invoked with `options` as `this`, which throws "Illegal invocation" in browsers.
