@@ -1,5 +1,5 @@
 // Inlined from https://github.com/sindresorhus/is-network-error v1.3.2
-import {isError} from './is.js';
+import {isError} from './object.js';
 
 const errorMessages = new Set([
 	'network error', // Chrome

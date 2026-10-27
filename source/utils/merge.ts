@@ -1,7 +1,7 @@
 import type {KyHeadersInit, Options} from '../types/options.js';
 import type {Hooks, NormalizedHooks} from '../types/hooks.js';
 import {supportsAbortSignal} from '../core/constants.js';
-import {isNonArrayObject, isObject} from './is.js';
+import {isNonArrayObject, isObject} from './object.js';
 
 // Registered globally so that a wrapper created by a second copy of Ky, which happens with a duplicated dependency, is still recognised.
 const replaceSymbol: unique symbol = Symbol.for('ky.replaceOption');

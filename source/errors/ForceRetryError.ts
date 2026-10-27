@@ -1,5 +1,5 @@
 import type {ForceRetryOptions} from '../core/constants.js';
-import {isNonNegativeNumber, isRequest} from '../utils/is.js';
+import {isNonNegativeNumber, isRequest} from '../utils/object.js';
 import {KyError} from './KyError.js';
 import {NonError} from './NonError.js';
 

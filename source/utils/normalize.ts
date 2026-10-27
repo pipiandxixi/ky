@@ -1,7 +1,7 @@
 import {requestMethods} from '../core/constants.js';
 import type {RetryOptions} from '../types/retry.js';
 import type {HttpMethod, InternalOptions, RequestHttpMethod} from '../types/options.js';
-import {isNonArrayObject, isNonNegativeNumber} from './is.js';
+import {isNonArrayObject, isNonNegativeNumber} from './object.js';
 
 export const normalizeRequestMethod = (input: string): string =>
 	requestMethods.includes(input.toLowerCase() as RequestHttpMethod) ? input.toUpperCase() : input;

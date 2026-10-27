@@ -1,4 +1,4 @@
-import {isError} from '../utils/is.js';
+import {isError} from '../utils/object.js';
 
 /**
 Wrapper for non-Error values that were thrown.
