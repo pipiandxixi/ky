@@ -37,7 +37,7 @@ import {findUnknownOptions, hasSearchParameters} from '../utils/options.js';
 import isRawNetworkError from '../utils/is-network-error.js';
 import {
 	isError, isNonArrayObject, isNonNegativeNumber, isObject, isRequest, isResponse,
-} from '../utils/is.js';
+} from '../utils/object.js';
 import {
 	isHTTPError, isNetworkError, isTimeoutError, isResponseSizeError, isForceRetryError,
 } from '../utils/type-guards.js';
