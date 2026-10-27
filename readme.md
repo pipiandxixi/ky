@@ -406,7 +406,7 @@ const json = await ky('https://example.com', {
 Type: `number | false`\
 Default: `10000`
 
-Per-attempt timeout in milliseconds for getting a response, applied independently to each retry. Ky shortcut methods also use this value as a separate timeout for reading the response body. Must be a non-negative number or `false`, or a `TypeError` is thrown. A value greater than 2147483647, `Infinity` included, throws a `RangeError`. See also [`totalTimeout`](#totaltimeout).
+Timeout in milliseconds for getting a response. Each attempt, including every retry, gets its own timeout. Ky shortcut methods also use this value as a separate timeout for reading the response body. Must be a non-negative number or `false`, or a `TypeError` is thrown. A value greater than 2147483647, `Infinity` included, throws a `RangeError`. See also [`totalTimeout`](#totaltimeout).
 
 If set to `false`, there will be no per-attempt timeout.
 
