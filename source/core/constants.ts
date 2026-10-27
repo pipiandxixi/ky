@@ -266,6 +266,7 @@ export const retry = (options?: ForceRetryOptions) => new RetryMarker(options);
 export const beforeRetryOptionKeys = ['onUploadProgress', 'onDownloadProgress', 'timeout', 'fetch', 'throwHttpErrors'] as const;
 
 export const kyOptionKeys: KyOptionsRegistry = {
+	log: true,
 	json: true,
 	parseJson: true,
 	stringifyJson: true,

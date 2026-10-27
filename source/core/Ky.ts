@@ -35,6 +35,7 @@ import timeout from '../utils/timeout.js';
 import delay from '../utils/delay.js';
 import {findUnknownOptions, hasSearchParameters} from '../utils/options.js';
 import isRawNetworkError from '../utils/is-network-error.js';
+import {createLogEntry} from '../utils/log.js';
 import {
 	isError, isNonArrayObject, isNonNegativeNumber, isObject, isRequest, isResponse,
 } from '../utils/is.js';
@@ -438,6 +439,10 @@ export class Ky {
 	public request: Request;
 	#abortController?: AbortController;
 	#retryCount = 0;
+
+	get retryCount(): number {
+		return this.#retryCount;
+	}
 	#retryLimit: number;
 	readonly #options: InternalOptions;
 	// Keep the input Request alive because Node.js stops forwarding its signal when the Request is garbage-collected.
@@ -1234,6 +1239,8 @@ export class Ky {
 			this.#requestBodyCanBeCancelled = true;
 		}
 
+		const startedAt = Date.now();
+
 		try {
 			const effectiveTimeout = this.#getEffectiveTimeout();
 
@@ -1245,6 +1252,8 @@ export class Ky {
 					timeout: effectiveTimeout,
 					fetch,
 				});
+
+			this.#options.log?.(createLogEntry(this, request, response, startedAt));
 
 			// `undefined` would otherwise look like `ky.stop`, and any other value fails later with an error that does not name the cause.
 			if (!isResponse(response)) {
