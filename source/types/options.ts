@@ -1,3 +1,4 @@
+import type {LogEntry} from '../utils/log.js';
 import type {LiteralUnion} from './common.js';
 import type {Hooks, NormalizedHooks} from './hooks.js';
 import type {MutableRetryOptions, RetryOptions} from './retry.js';
@@ -43,6 +44,20 @@ Custom Ky options
 */
 
 export type KyOptions = {
+	/**
+	Called after every attempt that received a response, with its method, URL, status, duration and request headers.
+
+	@example
+	```
+	import ky from 'ky';
+
+	await ky('https://example.com', {
+		log: entry => console.log(entry.method, entry.url, entry.status, `${entry.durationMs}ms`),
+	});
+	```
+	*/
+	log?: (entry: LogEntry) => void;
+
 	/**
 	Shortcut for sending JSON. Use this instead of the `body` option.
 
