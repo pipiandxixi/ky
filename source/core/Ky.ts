@@ -687,7 +687,7 @@ export class Ky {
 
 	async #calculateRetryDelay(error: unknown) {
 		const retry = normalizeRetryOptions(this.#options.retry);
-		if (this.#retryCount >= Math.min(retry.limit, this.#retryLimit)) {
+		if (this.#retryCount > Math.min(retry.limit, this.#retryLimit)) {
 			throw error;
 		}
 
