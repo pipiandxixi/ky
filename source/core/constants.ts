@@ -1,5 +1,6 @@
 import type {Expect, Equal} from '@type-challenges/utils';
 import {type KyOptionsRegistry, type RequestHttpMethod} from '../types/options.js';
+import {isTimeoutError} from '../utils/type-guards.js';
 
 export const supportsRequestStreams = (() => {
 	let duplexAccessed = false;
@@ -305,3 +306,5 @@ export const requestOptionsRegistry = {
 	window: true,
 	duplex: true,
 } as const;
+
+export const isRetryableByDefault = (error: unknown): boolean => isTimeoutError(error);
